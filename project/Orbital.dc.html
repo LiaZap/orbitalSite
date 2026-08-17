@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#0A0E1A;color:#fff;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:rgba(37,99,235,.4);color:#fff}
+  input,button,select{font-family:inherit}
+  @keyframes spin360{to{transform:rotate(360deg)}}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+  @keyframes pulseWa{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 20px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes blobA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,-50px) scale(1.18)}}
+  @keyframes blobB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-60px,50px) scale(1.22)}}
+  @keyframes blobC{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,40px) scale(1.12)}}
+  @keyframes wordCycle{0%,4%{opacity:0;transform:translateY(16px)}9%,28%{opacity:1;transform:translateY(0)}34%,100%{opacity:0;transform:translateY(-16px)}}
+  @keyframes twinkle{0%,100%{opacity:.12}50%{opacity:.95}}
+  @keyframes growBar{from{transform:scaleY(.12)}to{transform:scaleY(1)}}
+  @keyframes successPop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+  [data-nav-burger]{display:none}
+  @media(max-width:900px){[data-nav-desktop]{display:none!important}[data-nav-burger]{display:flex!important}[data-hero-cta]{display:none!important}}
+  @media(max-width:780px){[data-hero]{grid-template-columns:1fr!important;text-align:center}[data-hero] [data-herobtns]{justify-content:center}[data-mock]{display:none!important}}
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;overflow:hidden">
+
+  <!-- ============ HEADER ============ -->
+  <header data-header style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,5vw,56px);transition:background .35s ease,padding .35s ease,border-color .35s ease;border-bottom:1px solid transparent">
+    <a href="#inicio" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff">
+      <svg viewBox="0 0 100 100" width="40" height="40" style="display:block;flex:none">
+        <g style="animation:spin360 26s linear infinite;transform-origin:50px 50px">
+          <ellipse cx="50" cy="50" rx="43" ry="19" fill="none" stroke="#fff" stroke-width="3" transform="rotate(-28 50 50)"></ellipse>
+          <ellipse cx="50" cy="50" rx="30" ry="12.5" fill="none" stroke="#fff" stroke-width="2.4" opacity="0.55" transform="rotate(-28 50 50)"></ellipse>
+          <g transform="rotate(-28 50 50)"><polygon points="92,43 93.76,47.57 98.66,47.84 94.85,50.93 96.12,55.66 92,53 87.88,55.66 89.15,50.93 85.34,47.84 90.24,47.57" fill="#fff"></polygon></g>
+        </g>
+      </svg>
+      <span style="font-family:'Space Grotesk';font-weight:700;font-size:23px;letter-spacing:4px">ORBITAL</span>
+    </a>
+    <nav data-nav-desktop style="display:flex;gap:34px;align-items:center">
+      <a href="#inicio" style="color:#A8B5CC;text-decoration:none;font-size:15px;font-weight:500;transition:color .2s" style-hover="color:#fff">Início</a>
+      <a href="#servicos" style="color:#A8B5CC;text-decoration:none;font-size:15px;font-weight:500;transition:color .2s" style-hover="color:#fff">Serviços</a>
+      <a href="#como-funciona" style="color:#A8B5CC;text-decoration:none;font-size:15px;font-weight:500;transition:color .2s" style-hover="color:#fff">Como Funciona</a>
+      <a href="#resultados" style="color:#A8B5CC;text-decoration:none;font-size:15px;font-weight:500;transition:color .2s" style-hover="color:#fff">Resultados</a>
+      <a href="#contato" style="color:#A8B5CC;text-decoration:none;font-size:15px;font-weight:500;transition:color .2s" style-hover="color:#fff">Contato</a>
+    </nav>
+    <a data-wa data-hero-cta href="#contato" style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#2563EB,#1E4FD8);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 22px;border-radius:10px;box-shadow:0 8px 26px rgba(37,99,235,.35);transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 12px 34px rgba(37,99,235,.55)">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607z"></path></svg>
+      Agendar Diagnóstico
+    </a>
+    <button data-nav-burger onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="display:none;align-items:center;justify-content:center;width:46px;height:46px;background:rgba(255,255,255,.06);border:1px solid rgba(120,150,220,.25);border-radius:11px;cursor:pointer;flex-direction:column;gap:5px">
+      <span style="display:block;width:20px;height:2px;background:#fff;border-radius:2px"></span>
+      <span style="display:block;width:20px;height:2px;background:#fff;border-radius:2px"></span>
+      <span style="display:block;width:14px;height:2px;background:#fff;border-radius:2px"></span>
+    </button>
+  </header>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:200;background:rgba(8,11,20,.96);backdrop-filter:blur(16px);display:flex;flex-direction:column;padding:26px clamp(20px,6vw,40px)">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:22px;letter-spacing:4px">ORBITAL</span>
+        <button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="width:46px;height:46px;background:rgba(255,255,255,.06);border:1px solid rgba(120,150,220,.25);border-radius:11px;color:#fff;font-size:22px;cursor:pointer">×</button>
+      </div>
+      <nav style="display:flex;flex-direction:column;gap:6px;margin-top:48px">
+        <a href="#inicio" onClick="{{ closeMenu }}" style="color:#fff;text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:30px;padding:14px 0;border-bottom:1px solid rgba(120,150,220,.12)">Início</a>
+        <a href="#servicos" onClick="{{ closeMenu }}" style="color:#fff;text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:30px;padding:14px 0;border-bottom:1px solid rgba(120,150,220,.12)">Serviços</a>
+        <a href="#como-funciona" onClick="{{ closeMenu }}" style="color:#fff;text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:30px;padding:14px 0;border-bottom:1px solid rgba(120,150,220,.12)">Como Funciona</a>
+        <a href="#resultados" onClick="{{ closeMenu }}" style="color:#fff;text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:30px;padding:14px 0;border-bottom:1px solid rgba(120,150,220,.12)">Resultados</a>
+        <a href="#contato" onClick="{{ closeMenu }}" style="color:#fff;text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:30px;padding:14px 0;border-bottom:1px solid rgba(120,150,220,.12)">Contato</a>
+      </nav>
+      <a data-wa href="#contato" onClick="{{ closeMenu }}" style="margin-top:auto;text-align:center;background:linear-gradient(135deg,#2563EB,#1E4FD8);color:#fff;text-decoration:none;font-weight:600;font-size:17px;padding:17px;border-radius:13px">Agendar Diagnóstico</a>
+    </div>
+  </sc-if>
+
+  <!-- ============ HERO ============ -->
+  <section id="inicio" style="position:relative;min-height:100vh;display:flex;align-items:center;padding:130px clamp(20px,5vw,56px) 80px;scroll-margin-top:84px">
+    <!-- mesh blobs -->
+    <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+      <div style="position:absolute;top:-10%;left:-5%;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.42),transparent 65%);filter:blur(40px);animation:blobA 18s ease-in-out infinite"></div>
+      <div style="position:absolute;bottom:-15%;right:-8%;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(30,79,216,.34),transparent 65%);filter:blur(50px);animation:blobB 22s ease-in-out infinite"></div>
+      <div style="position:absolute;top:30%;right:25%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(22,41,61,.6),transparent 60%);filter:blur(45px);animation:blobC 26s ease-in-out infinite"></div>
+    </div>
+    <!-- particles -->
+    <div style="position:absolute;inset:0;pointer-events:none">
+      <span style="position:absolute;top:18%;left:12%;width:3px;height:3px;border-radius:50%;background:#7aa2ff;animation:twinkle 4s ease-in-out infinite"></span>
+      <span style="position:absolute;top:30%;left:78%;width:2px;height:2px;border-radius:50%;background:#fff;animation:twinkle 5.5s ease-in-out .6s infinite"></span>
+      <span style="position:absolute;top:62%;left:22%;width:2px;height:2px;border-radius:50%;background:#7aa2ff;animation:twinkle 6s ease-in-out 1.2s infinite"></span>
+      <span style="position:absolute;top:75%;left:60%;width:3px;height:3px;border-radius:50%;background:#fff;animation:twinkle 4.8s ease-in-out .3s infinite"></span>
+      <span style="position:absolute;top:14%;left:48%;width:2px;height:2px;border-radius:50%;background:#7aa2ff;animation:twinkle 5s ease-in-out 1.8s infinite"></span>
+      <span style="position:absolute;top:45%;left:90%;width:2px;height:2px;border-radius:50%;background:#fff;animation:twinkle 6.5s ease-in-out .9s infinite"></span>
+      <span style="position:absolute;top:85%;left:35%;width:2px;height:2px;border-radius:50%;background:#7aa2ff;animation:twinkle 4.4s ease-in-out 2.2s infinite"></span>
+      <span style="position:absolute;top:55%;left:8%;width:3px;height:3px;border-radius:50%;background:#fff;animation:twinkle 5.2s ease-in-out 1.5s infinite"></span>
+      <span style="position:absolute;top:8%;left:68%;width:2px;height:2px;border-radius:50%;background:#7aa2ff;animation:twinkle 5.8s ease-in-out .4s infinite"></span>
+      <span style="position:absolute;top:38%;left:33%;width:2px;height:2px;border-radius:50%;background:#fff;animation:twinkle 4.6s ease-in-out 2.6s infinite"></span>
+    </div>
+
+    <div data-hero style="position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
+      <div>
+        <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid rgba(120,150,220,.28);border-radius:100px;background:rgba(120,150,220,.06);font-size:13px;letter-spacing:1.5px;color:#A8B5CC;text-transform:uppercase;font-weight:600">
+          <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e"></span>
+          Automação · IA · Performance
+        </div>
+        <h1 data-reveal style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-1.5px;margin:22px 0 0">Sua empresa no<br><span style="background:linear-gradient(100deg,#fff 20%,#6ea0ff 55%,#2563EB);-webkit-background-clip:text;background-clip:text;color:transparent">piloto automático</span><br>com IA</h1>
+        <div data-reveal style="display:flex;gap:11px;align-items:baseline;margin-top:20px;font-family:'Space Grotesk';font-weight:600;font-size:clamp(18px,2.6vw,28px)">
+          <span style="color:#A8B5CC">Automatizamos</span>
+          <span style="position:relative;display:inline-grid">
+            <span style="grid-area:1/1;background:linear-gradient(90deg,#2563EB,#7aa2ff);-webkit-background-clip:text;background-clip:text;color:transparent;animation:wordCycle 6.6s ease-in-out infinite">Atendimento</span>
+            <span style="grid-area:1/1;background:linear-gradient(90deg,#2563EB,#7aa2ff);-webkit-background-clip:text;background-clip:text;color:transparent;animation:wordCycle 6.6s ease-in-out 2.2s infinite">Vendas</span>
+            <span style="grid-area:1/1;background:linear-gradient(90deg,#2563EB,#7aa2ff);-webkit-background-clip:text;background-clip:text;color:transparent;animation:wordCycle 6.6s ease-in-out 4.4s infinite">Operação</span>
+          </span>
+        </div>
+        <p data-reveal style="color:#A8B5CC;font-size:clamp(16px,1.8vw,19px);line-height:1.65;max-width:520px;margin:18px 0 0">Automatizamos atendimento, vendas e operação para você focar no que realmente importa: <strong style="color:#fff;font-weight:600">crescer</strong>.</p>
+        <div data-reveal data-herobtns style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+          <a data-wa href="#contato" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#2563EB,#1E4FD8);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:16px 28px;border-radius:13px;box-shadow:0 12px 34px rgba(37,99,235,.4);transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-3px);box-shadow:0 18px 44px rgba(37,99,235,.6)">Agendar Diagnóstico Estratégico</a>
+          <a href="#servicos" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:16px 28px;border-radius:13px;border:1px solid rgba(120,150,220,.3);transition:background .2s,border-color .2s" style-hover="background:rgba(255,255,255,.09);border-color:rgba(120,150,220,.55)">Ver o que fazemos →</a>
+        </div>
+      </div>
+
+      <!-- visual: anel + dashboard mockup -->
+      <div style="position:relative;height:480px;display:flex;align-items:center;justify-content:center">
+        <svg viewBox="0 0 100 100" width="430" height="430" style="position:absolute;opacity:.6">
+          <g style="animation:spin360 40s linear infinite;transform-origin:50px 50px">
+            <ellipse cx="50" cy="50" rx="46" ry="20" fill="none" stroke="rgba(122,162,255,.55)" stroke-width="0.6" transform="rotate(-28 50 50)"></ellipse>
+            <ellipse cx="50" cy="50" rx="34" ry="14" fill="none" stroke="rgba(37,99,235,.7)" stroke-width="0.8" transform="rotate(-28 50 50)"></ellipse>
+            <g transform="rotate(-28 50 50)"><polygon points="96,50 97.3,53.3 100.7,53.5 98,55.8 98.9,59.1 96,57.2 93.1,59.1 94,55.8 91.3,53.5 94.7,53.3" fill="#7aa2ff"></polygon></g>
+          </g>
+        </svg>
+        <div data-mock style="position:relative;z-index:2;width:330px;background:linear-gradient(160deg,rgba(20,30,52,.92),rgba(13,20,36,.92));border:1px solid rgba(122,162,255,.22);border-radius:20px;padding:20px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 50px rgba(37,99,235,.15);animation:floatY 7s ease-in-out infinite;backdrop-filter:blur(8px)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+            <div style="display:flex;align-items:center;gap:9px">
+              <span style="width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e"></span>
+              <span style="font-size:13px;font-weight:600;color:#fff">Operação ao vivo</span>
+            </div>
+            <span style="font-size:11px;color:#A8B5CC;font-family:'Space Grotesk'">24/7</span>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:8px;height:96px;margin-bottom:18px">
+            <div style="flex:1;background:linear-gradient(180deg,#2563EB,#1E4FD8);border-radius:5px 5px 0 0;height:45%;transform-origin:bottom;animation:growBar 1.1s ease-out"></div>
+            <div style="flex:1;background:linear-gradient(180deg,#2563EB,#1E4FD8);border-radius:5px 5px 0 0;height:70%;transform-origin:bottom;animation:growBar 1.1s ease-out .1s backwards"></div>
+            <div style="flex:1;background:linear-gradient(180deg,#2563EB,#1E4FD8);border-radius:5px 5px 0 0;height:55%;transform-origin:bottom;animation:growBar 1.1s ease-out .2s backwards"></div>
+            <div style="flex:1;background:linear-gradient(180deg,#6ea0ff,#2563EB);border-radius:5px 5px 0 0;height:90%;transform-origin:bottom;animation:growBar 1.1s ease-out .3s backwards"></div>
+            <div style="flex:1;background:linear-gradient(180deg,#2563EB,#1E4FD8);border-radius:5px 5px 0 0;height:65%;transform-origin:bottom;animation:growBar 1.1s ease-out .4s backwards"></div>
+            <div style="flex:1;background:linear-gradient(180deg,#6ea0ff,#2563EB);border-radius:5px 5px 0 0;height:100%;transform-origin:bottom;animation:growBar 1.1s ease-out .5s backwards"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 13px;background:rgba(122,162,255,.07);border-radius:11px">
+              <span style="font-size:12.5px;color:#A8B5CC">Leads qualificados</span>
+              <span style="font-size:13px;font-weight:700;color:#fff;font-family:'Space Grotesk'">+248</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 13px;background:rgba(122,162,255,.07);border-radius:11px">
+              <span style="font-size:12.5px;color:#A8B5CC">Respostas automáticas</span>
+              <span style="font-size:13px;font-weight:700;color:#22c55e;font-family:'Space Grotesk'">98,4%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROVA SOCIAL ============ -->
+  <section style="position:relative;z-index:2;padding:10px 0 60px;border-top:1px solid rgba(120,150,220,.1);border-bottom:1px solid rgba(120,150,220,.1);background:rgba(13,20,36,.4)">
+    <p data-reveal style="text-align:center;color:#A8B5CC;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin:42px 0 26px">Empresas que já operam no automático</p>
+    <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+      <div style="display:flex;width:max-content;gap:64px;animation:marquee 26s linear infinite">
+        <sc-for list="{{ clients }}" as="c" hint-placeholder-count="16">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:23px;letter-spacing:3px;color:rgba(168,181,204,.55);white-space:nowrap">{{ c }}</span>
+        </sc-for>
+      </div>
+    </div>
+    <div style="max-width:1100px;margin:54px auto 0;padding:0 clamp(20px,5vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px">
+      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+        <div data-reveal style="text-align:center">
+          <div style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(34px,5vw,52px);line-height:1;background:linear-gradient(120deg,#fff,#6ea0ff);-webkit-background-clip:text;background-clip:text;color:transparent">{{ st.prefix }}<span data-countup="{{ st.value }}" data-sep="{{ st.sep }}">0</span>{{ st.suffix }}</div>
+          <div style="color:#A8B5CC;font-size:14px;margin-top:10px;font-weight:500">{{ st.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEMA ============ -->
+  <section style="position:relative;padding:clamp(70px,9vw,120px) clamp(20px,5vw,56px);max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:760px">
+      <span style="color:#2563EB;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700">O Problema</span>
+      <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4.5vw,46px);line-height:1.1;letter-spacing:-1px;margin:14px 0 0">Por que sua empresa ainda não usa Automação com IA?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:48px">
+      <sc-for list="{{ problems }}" as="p" hint-placeholder-count="4">
+        <div data-reveal style="padding:28px;border:1px solid rgba(120,150,220,.16);border-radius:18px;background:rgba(255,255,255,.02);transition:transform .3s,border-color .3s,background .3s" style-hover="transform:translateY(-6px);border-color:rgba(122,162,255,.4);background:rgba(122,162,255,.05)">
+          <div style="width:48px;height:48px;border-radius:13px;background:rgba(37,99,235,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#6ea0ff">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{ p.icon }}"></path></svg>
+          </div>
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18px;margin:0 0 8px;line-height:1.25">{{ p.title }}</h3>
+          <p style="color:#A8B5CC;font-size:14.5px;line-height:1.6;margin:0">{{ p.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <div data-reveal style="margin-top:44px;text-align:center;padding:36px;border-radius:20px;background:linear-gradient(120deg,rgba(37,99,235,.12),rgba(22,41,61,.4));border:1px solid rgba(122,162,255,.2)">
+      <p style="font-family:'Space Grotesk';font-weight:600;font-size:clamp(20px,3vw,30px);margin:0;line-height:1.3">Automatizar não é mais uma opção. <span style="color:#6ea0ff">É uma questão de sobrevivência.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section id="servicos" style="position:relative;padding:clamp(70px,9vw,120px) clamp(20px,5vw,56px);scroll-margin-top:84px;background:rgba(13,20,36,.45);border-top:1px solid rgba(120,150,220,.1);border-bottom:1px solid rgba(120,150,220,.1)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div data-reveal style="text-align:center;max-width:680px;margin:0 auto">
+        <span style="color:#2563EB;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700">O que automatizamos</span>
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4.5vw,46px);line-height:1.1;letter-spacing:-1px;margin:14px 0 0">O que podemos automatizar com IA na sua empresa</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-top:52px">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+          <div data-reveal style="position:relative;padding:30px;border:1px solid rgba(120,150,220,.16);border-radius:20px;background:linear-gradient(160deg,rgba(20,30,52,.5),rgba(13,20,36,.5));overflow:hidden;transition:transform .3s,border-color .3s;backdrop-filter:blur(4px)" style-hover="transform:translateY(-8px);border-color:rgba(122,162,255,.55)">
+            <div style="width:54px;height:54px;border-radius:15px;background:linear-gradient(135deg,#2563EB,#1E4FD8);display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 22px rgba(37,99,235,.35);color:#fff">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{ s.icon }}"></path></svg>
+            </div>
+            <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:20px;margin:0 0 10px">{{ s.title }}</h3>
+            <p style="color:#A8B5CC;font-size:15px;line-height:1.65;margin:0">{{ s.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMO FUNCIONA ============ -->
+  <section id="como-funciona" style="position:relative;padding:clamp(70px,9vw,120px) clamp(20px,5vw,56px);scroll-margin-top:84px;max-width:1240px;margin:0 auto">
+    <div data-reveal style="text-align:center;max-width:680px;margin:0 auto">
+      <span style="color:#2563EB;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700">O processo</span>
+      <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4.5vw,46px);line-height:1.1;letter-spacing:-1px;margin:14px 0 0">Como colocamos sua empresa em órbita</h2>
+    </div>
+    <div style="position:relative;margin-top:60px">
+      <div style="position:absolute;top:38px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,rgba(122,162,255,.5),rgba(122,162,255,.5),transparent);z-index:0"></div>
+      <div style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+          <div data-reveal style="text-align:center">
+            <div style="width:76px;height:76px;margin:0 auto;border-radius:50%;background:linear-gradient(135deg,#16243D,#0D1424);border:2px solid rgba(122,162,255,.4);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:26px;background-clip:padding-box;box-shadow:0 0 30px rgba(37,99,235,.25);position:relative">
+              <span style="background:linear-gradient(120deg,#fff,#6ea0ff);-webkit-background-clip:text;background-clip:text;color:transparent">{{ st.num }}</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:19px;margin:22px 0 8px">{{ st.title }}</h3>
+            <p style="color:#A8B5CC;font-size:14.5px;line-height:1.6;margin:0;max-width:240px;margin-left:auto;margin-right:auto">{{ st.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIFERENCIAIS ============ -->
+  <section style="position:relative;padding:clamp(70px,9vw,120px) clamp(20px,5vw,56px);background:rgba(13,20,36,.45);border-top:1px solid rgba(120,150,220,.1);border-bottom:1px solid rgba(120,150,220,.1)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div data-reveal style="text-align:center;max-width:680px;margin:0 auto">
+        <span style="color:#2563EB;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700">Diferenciais</span>
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4.5vw,46px);line-height:1.1;letter-spacing:-1px;margin:14px 0 0">Por que contratar a Orbital?</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:48px">
+        <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="4">
+          <div data-reveal style="padding:28px;border:1px solid rgba(120,150,220,.16);border-radius:18px;background:rgba(255,255,255,.02);transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(122,162,255,.45)">
+            <div style="width:48px;height:48px;border-radius:13px;background:rgba(37,99,235,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#6ea0ff">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{ d.icon }}"></path></svg>
+            </div>
+            <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18px;margin:0;line-height:1.3">{{ d.title }}</h3>
+          </div>
+        </sc-for>
+      </div>
+      <div data-reveal style="margin-top:48px;text-align:center;position:relative;padding:clamp(40px,6vw,72px) 30px;border-radius:24px;background:linear-gradient(120deg,#1E4FD8,#16243D);overflow:hidden">
+        <svg viewBox="0 0 100 100" width="280" height="280" style="position:absolute;top:-40px;right:-40px;opacity:.18">
+          <g style="animation:spin360 34s linear infinite;transform-origin:50px 50px"><ellipse cx="50" cy="50" rx="44" ry="19" fill="none" stroke="#fff" stroke-width="1.4" transform="rotate(-28 50 50)"></ellipse></g>
+        </svg>
+        <p style="position:relative;font-family:'Space Grotesk';font-weight:700;font-size:clamp(22px,3.6vw,38px);margin:0;line-height:1.2;letter-spacing:-.5px">Não somos mais uma agência.<br>Somos um <span style="color:#9dc0ff">time de performance.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTADOS ============ -->
+  <section id="resultados" style="position:relative;padding:clamp(70px,9vw,120px) clamp(20px,5vw,56px);scroll-margin-top:84px;max-width:1100px;margin:0 auto">
+    <div data-reveal style="text-align:center;max-width:680px;margin:0 auto">
+      <span style="color:#2563EB;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700">Resultados</span>
+      <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4.5vw,46px);line-height:1.1;letter-spacing:-1px;margin:14px 0 0">Resultados reais com Automação e IA</h2>
+    </div>
+    <div data-reveal style="margin-top:52px;position:relative;padding:clamp(32px,5vw,56px);border-radius:24px;border:1px solid rgba(122,162,255,.22);background:linear-gradient(160deg,rgba(20,30,52,.6),rgba(13,20,36,.6));backdrop-filter:blur(6px);min-height:240px;display:flex;flex-direction:column;justify-content:center">
+      <div style="display:flex;gap:4px;margin-bottom:22px">
+        <sc-for list="{{ testimonial.stars }}" as="x" hint-placeholder-count="5">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#facc15"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.42 1.18 6.41L12 17.27 6.07 20.1l1.18-6.41L2.5 9.27l6.6-1.01z"></path></svg>
+        </sc-for>
+      </div>
+      <p style="font-family:'Space Grotesk';font-weight:500;font-size:clamp(20px,2.8vw,28px);line-height:1.4;margin:0 0 28px;letter-spacing:-.3px">"{{ testimonial.quote }}"</p>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#16243D);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:19px;flex:none">{{ testimonial.initials }}</div>
+        <div style="flex:1;min-width:140px">
+          <div style="font-weight:600;font-size:16px">{{ testimonial.name }}</div>
+          <div style="color:#A8B5CC;font-size:14px">{{ testimonial.role }}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,4vw,40px);background:linear-gradient(120deg,#fff,#6ea0ff);-webkit-background-clip:text;background-clip:text;color:transparent">{{ testimonial.metric }}</div>
+          <div style="color:#A8B5CC;font-size:13px">{{ testimonial.metricLabel }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:10px;margin-top:26px">
+      <sc-for list="{{ tDots }}" as="dot" hint-placeholder-count="3">
+        <button onClick="{{ dot.onClick }}" aria-label="Ver depoimento" style="{{ dot.style }}"></button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ CAPTAÇÃO / FORM ============ -->
+  <section id="contato" style="position:relative;padding:clamp(70px,9vw,120px) clamp(20px,5vw,56px);scroll-margin-top:84px;overflow:hidden">
+    <div style="position:absolute;inset:0;pointer-events:none">
+      <div style="position:absolute;top:20%;left:50%;width:700px;height:700px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.22),transparent 60%);filter:blur(60px)"></div>
+    </div>
+    <div data-reveal style="position:relative;z-index:2;max-width:680px;margin:0 auto;text-align:center">
+      <span style="color:#2563EB;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700">Diagnóstico gratuito</span>
+      <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4.5vw,46px);line-height:1.1;letter-spacing:-1px;margin:14px 0 0">Vamos colocar sua empresa em órbita?</h2>
+      <p style="color:#A8B5CC;font-size:17px;line-height:1.6;margin:16px 0 0">Preencha em 30 segundos. Respondemos pelo WhatsApp em até 24h.</p>
+    </div>
+
+    <div style="position:relative;z-index:2;max-width:560px;margin:44px auto 0;padding:clamp(26px,4vw,40px);border-radius:24px;border:1px solid rgba(122,162,255,.25);background:linear-gradient(160deg,rgba(20,30,52,.75),rgba(13,20,36,.85));box-shadow:0 30px 80px rgba(0,0,0,.5);backdrop-filter:blur(10px)">
+
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:20px 0;animation:successPop .5s ease">
+          <div style="width:80px;height:80px;margin:0 auto 22px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(34,197,94,.45)">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+          </div>
+          <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:24px;margin:0 0 10px">Tudo certo! 🚀</h3>
+          <p style="color:#A8B5CC;font-size:16px;line-height:1.6;margin:0">Abrimos o WhatsApp com seus dados. Caso não tenha aberto, toque no botão abaixo.</p>
+          <a data-wa href="#contato" style="display:inline-flex;margin-top:22px;align-items:center;gap:9px;background:#25D366;color:#0A0E1A;text-decoration:none;font-weight:700;font-size:15px;padding:14px 26px;border-radius:12px">Abrir WhatsApp</a>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ formActive }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <!-- progress -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-size:13px;color:#A8B5CC;font-weight:600">{{ stepLabel }}</span>
+            <span style="font-size:13px;color:#6ea0ff;font-weight:700;font-family:'Space Grotesk'">{{ stepCounter }}</span>
+          </div>
+          <div style="height:6px;border-radius:100px;background:rgba(120,150,220,.15);overflow:hidden;margin-bottom:28px">
+            <div style="height:100%;border-radius:100px;background:linear-gradient(90deg,#2563EB,#6ea0ff);width:{{ progress }};transition:width .4s cubic-bezier(.2,.7,.2,1)"></div>
+          </div>
+
+          <sc-if value="{{ s0 }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <label style="display:block;font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-bottom:16px">Qual é o seu nome?</label>
+              <input value="{{ data.nome }}" onInput="{{ onNome }}" placeholder="Digite seu nome completo" style="width:100%;padding:16px 18px;border-radius:13px;border:1px solid rgba(120,150,220,.3);background:rgba(10,14,26,.6);color:#fff;font-size:16px;outline:none" style-focus="border-color:#2563EB"></input>
+            </div>
+          </sc-if>
+          <sc-if value="{{ s1 }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <label style="display:block;font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-bottom:16px">Nome da sua empresa?</label>
+              <input value="{{ data.empresa }}" onInput="{{ onEmpresa }}" placeholder="Nome do negócio" style="width:100%;padding:16px 18px;border-radius:13px;border:1px solid rgba(120,150,220,.3);background:rgba(10,14,26,.6);color:#fff;font-size:16px;outline:none" style-focus="border-color:#2563EB"></input>
+            </div>
+          </sc-if>
+          <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <label style="display:block;font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-bottom:16px">Seu WhatsApp?</label>
+              <input value="{{ data.telefone }}" onInput="{{ onTel }}" inputMode="tel" placeholder="(11) 99999-9999" style="width:100%;padding:16px 18px;border-radius:13px;border:1px solid rgba(120,150,220,.3);background:rgba(10,14,26,.6);color:#fff;font-size:16px;outline:none" style-focus="border-color:#2563EB"></input>
+            </div>
+          </sc-if>
+          <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <label style="display:block;font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-bottom:16px">Qual o segmento da empresa?</label>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="5">
+                  <button onClick="{{ seg.onSelect }}" style="{{ seg.style }}">{{ seg.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <label style="display:block;font-family:'Space Grotesk';font-weight:600;font-size:20px;margin-bottom:16px">O que mais quer automatizar?</label>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <sc-for list="{{ objetivos }}" as="obj" hint-placeholder-count="5">
+                  <button onClick="{{ obj.onSelect }}" style="{{ obj.style }}">{{ obj.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ error }}" hint-placeholder-val="">
+            <p style="color:#f87171;font-size:14px;margin:14px 0 0">{{ error }}</p>
+          </sc-if>
+
+          <div style="display:flex;gap:12px;margin-top:26px">
+            <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ back }}" style="padding:15px 20px;border-radius:13px;border:1px solid rgba(120,150,220,.3);background:transparent;color:#A8B5CC;font-size:15px;font-weight:600;cursor:pointer">Voltar</button>
+            </sc-if>
+            <sc-if value="{{ showNext }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ next }}" style="flex:1;padding:15px;border-radius:13px;border:none;background:linear-gradient(135deg,#2563EB,#1E4FD8);color:#fff;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 10px 28px rgba(37,99,235,.35);transition:transform .2s" style-hover="transform:translateY(-2px)">Próximo →</button>
+            </sc-if>
+            <sc-if value="{{ showSubmit }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ submit }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:10px;padding:16px;border-radius:13px;border:none;background:linear-gradient(135deg,#25D366,#1ebe5a);color:#0A0E1A;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 12px 30px rgba(37,211,102,.4);transition:transform .2s" style-hover="transform:translateY(-2px)">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"></path></svg>
+                Falar com a Orbital
+              </button>
+            </sc-if>
+          </div>
+          <p style="text-align:center;color:#7d89a3;font-size:12.5px;margin:18px 0 0">🔒 Sem compromisso. Seus dados estão seguros.</p>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section style="position:relative;padding:clamp(70px,9vw,120px) clamp(20px,5vw,56px);overflow:hidden">
+    <div style="position:relative;max-width:1000px;margin:0 auto;padding:clamp(44px,7vw,84px) clamp(28px,5vw,64px);border-radius:30px;background:linear-gradient(120deg,#1E4FD8,#0F2942);overflow:hidden;text-align:center">
+      <svg viewBox="0 0 100 100" width="420" height="420" style="position:absolute;bottom:-160px;left:50%;transform:translateX(-50%);opacity:.16">
+        <g style="animation:spin360 38s linear infinite;transform-origin:50px 50px">
+          <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#fff" stroke-width="1" transform="rotate(-28 50 50)"></ellipse>
+          <ellipse cx="50" cy="50" rx="33" ry="14" fill="none" stroke="#fff" stroke-width="1" transform="rotate(-28 50 50)"></ellipse>
+        </g>
+      </svg>
+      <div style="position:relative;z-index:2">
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,5vw,52px);line-height:1.08;letter-spacing:-1px;margin:0">Pronto para colocar sua empresa em órbita?</h2>
+        <p style="color:#cdddff;font-size:clamp(16px,2vw,19px);line-height:1.6;max-width:560px;margin:20px auto 0">Agende um diagnóstico estratégico gratuito e descubra o que podemos automatizar hoje.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px">
+          <a data-wa href="#contato" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1E4FD8;text-decoration:none;font-weight:700;font-size:16px;padding:17px 30px;border-radius:14px;box-shadow:0 14px 36px rgba(0,0,0,.3);transition:transform .2s" style-hover="transform:translateY(-3px)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"></path></svg>
+            Falar no WhatsApp agora
+          </a>
+          <a href="#contato" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:17px 30px;border-radius:14px;border:1px solid rgba(255,255,255,.35);transition:background .2s" style-hover="background:rgba(255,255,255,.22)">Preencher diagnóstico</a>
+        </div>
+        <p style="color:#9dc0ff;font-size:14px;margin:24px 0 0">Resposta em até 24h. Sem compromisso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer style="position:relative;border-top:1px solid rgba(120,150,220,.12);background:#080B14;padding:clamp(50px,7vw,80px) clamp(20px,5vw,56px) 36px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px">
+      <div style="min-width:200px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <svg viewBox="0 0 100 100" width="40" height="40">
+            <g style="animation:spin360 26s linear infinite;transform-origin:50px 50px">
+              <ellipse cx="50" cy="50" rx="43" ry="19" fill="none" stroke="#fff" stroke-width="3" transform="rotate(-28 50 50)"></ellipse>
+              <ellipse cx="50" cy="50" rx="30" ry="12.5" fill="none" stroke="#fff" stroke-width="2.4" opacity="0.55" transform="rotate(-28 50 50)"></ellipse>
+              <g transform="rotate(-28 50 50)"><polygon points="92,43 93.76,47.57 98.66,47.84 94.85,50.93 96.12,55.66 92,53 87.88,55.66 89.15,50.93 85.34,47.84 90.24,47.57" fill="#fff"></polygon></g>
+            </g>
+          </svg>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:22px;letter-spacing:4px">ORBITAL</span>
+        </div>
+        <p style="color:#A8B5CC;font-size:15px;line-height:1.6;margin:18px 0 0;max-width:280px">Estratégias que faturam. Um time de performance para automatizar e escalar seu negócio com IA.</p>
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <a data-wa href="#contato" aria-label="WhatsApp" style="width:44px;height:44px;border-radius:12px;border:1px solid rgba(120,150,220,.25);display:flex;align-items:center;justify-content:center;color:#A8B5CC;transition:all .25s" style-hover="color:#fff;border-color:#25D366;background:rgba(37,211,102,.12);transform:translateY(-3px)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"></path></svg>
+          </a>
+          <a href="https://instagram.com/orbital.ag" target="_blank" rel="noopener" aria-label="Instagram" style="width:44px;height:44px;border-radius:12px;border:1px solid rgba(120,150,220,.25);display:flex;align-items:center;justify-content:center;color:#A8B5CC;transition:all .25s" style-hover="color:#fff;border-color:#6ea0ff;background:rgba(37,99,235,.12);transform:translateY(-3px)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Space Grotesk';font-weight:600;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#fff;margin:0 0 18px">Navegação</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="#inicio" style="color:#A8B5CC;text-decoration:none;font-size:15px;transition:color .2s" style-hover="color:#fff">Início</a>
+          <a href="#servicos" style="color:#A8B5CC;text-decoration:none;font-size:15px;transition:color .2s" style-hover="color:#fff">Serviços</a>
+          <a href="#como-funciona" style="color:#A8B5CC;text-decoration:none;font-size:15px;transition:color .2s" style-hover="color:#fff">Como Funciona</a>
+          <a href="#resultados" style="color:#A8B5CC;text-decoration:none;font-size:15px;transition:color .2s" style-hover="color:#fff">Resultados</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Space Grotesk';font-weight:600;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#fff;margin:0 0 18px">Serviços</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="color:#A8B5CC;font-size:15px">Atendimento Automático</span>
+          <span style="color:#A8B5CC;font-size:15px">Qualificação de Leads</span>
+          <span style="color:#A8B5CC;font-size:15px">Disparos Inteligentes</span>
+          <span style="color:#A8B5CC;font-size:15px">Análise Preditiva</span>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Space Grotesk';font-weight:600;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#fff;margin:0 0 18px">Contato</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a data-wa href="#contato" style="color:#A8B5CC;text-decoration:none;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:color .2s" style-hover="color:#25D366">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"></path></svg>
+            Fale conosco
+          </a>
+          <a href="https://instagram.com/orbital.ag" target="_blank" rel="noopener" style="color:#A8B5CC;text-decoration:none;font-size:15px;transition:color .2s" style-hover="color:#6ea0ff">@orbital.ag</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1240px;margin:48px auto 0;padding-top:26px;border-top:1px solid rgba(120,150,220,.1);color:#7d89a3;font-size:13.5px;text-align:center">© 2026 Orbital — Time de Performance. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- ============ WHATSAPP FLUTUANTE ============ -->
+  <a data-wa data-wa-float href="#contato" aria-label="Falar no WhatsApp" style="position:fixed;bottom:24px;right:24px;z-index:150;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,.5);animation:pulseWa 2.6s ease-out infinite;transition:transform .2s" style-hover="transform:scale(1.08)">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607z"></path></svg>
+  </a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // ====== CONFIG EDITÁVEL ======
+  WA = "5511999999999";          // 55 + DDD + número (placeholder editável)
+  WEBHOOK_URL = "";              // Cole sua URL de webhook n8n aqui. Vazio = ignora.
+  DEFAULT_MSG = "Olá! Vim pelo site da Orbital e quero saber como automatizar minha empresa com IA.";
+
+  state = {
+    scrolled: false, menu: false,
+    step: 0,
+    data: { nome: "", empresa: "", telefone: "", segmento: "", objetivo: "" },
+    error: "", submitted: false,
+    tIndex: 0,
+  };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const s = window.scrollY > 40;
+      const h = document.querySelector('[data-header]');
+      if (h) {
+        if (s) {
+          h.style.background = "rgba(10,14,26,.78)";
+          h.style.backdropFilter = "blur(16px)";
+          h.style.webkitBackdropFilter = "blur(16px)";
+          h.style.borderBottomColor = "rgba(120,150,220,.14)";
+          h.style.paddingTop = "13px"; h.style.paddingBottom = "13px";
+        } else {
+          h.style.background = "transparent";
+          h.style.backdropFilter = "none";
+          h.style.webkitBackdropFilter = "none";
+          h.style.borderBottomColor = "transparent";
+          h.style.paddingTop = "20px"; h.style.paddingBottom = "20px";
+        }
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+    // fill WhatsApp links
+    const href = this.waHref(this.DEFAULT_MSG);
+    document.querySelectorAll('[data-wa]').forEach(a => { a.href = href; a.target = "_blank"; a.rel = "noopener"; });
+    // observers
+    setTimeout(() => this.initObservers(), 60);
+    // testimonial autoplay
+    this._tInt = setInterval(() => this.setState(st => ({ tIndex: (st.tIndex + 1) % this.testimonials().length })), 5500);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    clearInterval(this._tInt);
+  }
+
+  initObservers() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+      document.querySelectorAll('[data-countup]').forEach(el => this.countUp(el));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(34px)';
+      el.style.transition = 'opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)';
+      el.style.transitionDelay = ((i % 5) * 70) + 'ms';
+      io.observe(el);
+    });
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { this.countUp(e.target); co.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-countup]').forEach(el => co.observe(el));
+  }
+
+  countUp(el) {
+    const target = parseFloat(el.getAttribute('data-countup')) || 0;
+    const sep = el.getAttribute('data-sep');
+    const dur = 1500, start = performance.now();
+    const fmt = (n) => { n = Math.round(n); return sep ? n.toLocaleString('pt-BR') : String(n); };
+    const tick = (now) => {
+      let p = Math.min(1, (now - start) / dur);
+      p = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * p);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  waHref(msg) { return "https://wa.me/" + this.WA + "?text=" + encodeURIComponent(msg); }
+
+  setData(k, v) { this.setState(st => ({ data: { ...st.data, [k]: v }, error: "" })); }
+
+  maskTel(e) {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    let out = v;
+    if (v.length > 0) out = '(' + v.slice(0, 2);
+    if (v.length >= 3) out += ') ' + v.slice(2, 7);
+    if (v.length >= 8) out += '-' + v.slice(7, 11);
+    this.setData('telefone', out);
+  }
+
+  next() {
+    const d = this.state.data, s = this.state.step;
+    if (s === 0) { if (!d.nome.trim()) return this.setState({ error: "Digite seu nome para continuar." }); }
+    if (s === 1) { if (!d.empresa.trim()) return this.setState({ error: "Informe o nome da empresa." }); }
+    if (s === 2) { if (d.telefone.replace(/\D/g, '').length < 10) return this.setState({ error: "Informe um WhatsApp válido com DDD." }); }
+    this.setState({ step: s + 1, error: "" });
+  }
+  back() { this.setState(st => ({ step: Math.max(0, st.step - 1), error: "" })); }
+
+  selectSeg(label) { this.setState(st => ({ data: { ...st.data, segmento: label }, step: 4, error: "" })); }
+  selectObj(label) { this.setState(st => ({ data: { ...st.data, objetivo: label }, error: "" })); }
+
+  submitForm() {
+    const d = this.state.data;
+    if (!d.objetivo) return this.setState({ error: "Selecione o que deseja automatizar." });
+    const msg = `Olá, Orbital! Sou ${d.nome}, da empresa ${d.empresa}. Meu segmento é ${d.segmento} e quero automatizar ${d.objetivo}. Meu WhatsApp é ${d.telefone}. Quero agendar um diagnóstico.`;
+    if (this.WEBHOOK_URL) {
+      try {
+        fetch(this.WEBHOOK_URL, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome: d.nome, empresa: d.empresa, telefone: d.telefone, segmento: d.segmento, objetivo: d.objetivo, origem: "site" })
+        }).catch(() => {});
+      } catch (err) {}
+    }
+    window.open(this.waHref(msg), "_blank");
+    this.setState({ submitted: true });
+  }
+
+  // ====== CONTEÚDO ======
+  problems() {
+    return [
+      { title: "Processos manuais custam caro", desc: "Tarefas repetitivas consomem horas da equipe e dinheiro todos os meses.", icon: "M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" },
+      { title: "Erros humanos acontecem", desc: "Distração e cansaço geram falhas que afetam a experiência do cliente.", icon: "M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01" },
+      { title: "Equipe sobrecarregada não escala", desc: "Crescer exige contratar mais — ou automatizar o que trava o time.", icon: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" },
+      { title: "Oportunidades perdidas todo dia", desc: "Leads esperando resposta são vendas que vão para o concorrente.", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2" },
+    ];
+  }
+  services() {
+    return [
+      { title: "Atendimento Automático", desc: "Resposta instantânea 24/7 para nunca deixar um cliente esperando.", icon: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" },
+      { title: "Qualificação de Leads", desc: "A IA identifica quem está pronto para comprar e prioriza o seu time.", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" },
+      { title: "Disparos Inteligentes", desc: "Mensagens certas, para a pessoa certa, na hora certa — em escala.", icon: "M22 2 11 13M22 2 15 22l-4-9-9-4z" },
+      { title: "Agendamentos Automáticos", desc: "Reuniões marcadas sozinhas, sincronizadas com a sua agenda.", icon: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" },
+      { title: "Relatórios Automáticos", desc: "Dados organizados e insights prontos, sem planilha manual.", icon: "M3 3v18h18M7 16v-5M12 16V8M17 16v-9" },
+      { title: "Análise Preditiva", desc: "Antecipe oportunidades e tendências antes da concorrência.", icon: "M3 17l6-6 4 4 8-8M21 7v6h-6" },
+    ];
+  }
+  steps() {
+    return [
+      { num: "01", title: "Diagnóstico estratégico", desc: "Entendemos a fundo o seu processo e onde está travando." },
+      { num: "02", title: "Desenho da automação", desc: "Mapeamos exatamente o que dá para automatizar com IA." },
+      { num: "03", title: "Implementação com IA", desc: "Construímos, integramos e colocamos tudo para funcionar." },
+      { num: "04", title: "Operação e otimização", desc: "Acompanhamos os resultados e melhoramos continuamente." },
+    ];
+  }
+  diffs() {
+    return [
+      { title: "Estratégia validada por dados", icon: "M3 3v18h18M7 16v-5M12 16V8M17 16v-9" },
+      { title: "Criativos que param o scroll", icon: "M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.5z" },
+      { title: "Foco em ROAS, não em curtidas", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" },
+      { title: "Relatórios transparentes toda semana", icon: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" },
+    ];
+  }
+  stats() {
+    return [
+      { prefix: "+", value: 1000, sep: "1", suffix: "", label: "Seguidores conquistados" },
+      { prefix: "x", value: 5, sep: "", suffix: "", label: "Mais produtividade" },
+      { prefix: "", value: 24, sep: "", suffix: "h", label: "De operação contínua" },
+      { prefix: "−", value: 70, sep: "", suffix: "%", label: "Menos tarefas manuais" },
+    ];
+  }
+  clients() {
+    const base = ["NOVA", "VERTEX", "LUMEN", "AXIS", "PRISMA", "FORGE", "NIMBUS", "QUANTA"];
+    return base.concat(base);
+  }
+  testimonials() {
+    return [
+      { quote: "Em 60 dias a Orbital automatizou nosso atendimento e o time parou de perder lead à noite. O WhatsApp responde sozinho e qualifica.", name: "Mariana Costa", role: "CEO · Clínica Viver", initials: "MC", metric: "+3x", metricLabel: "leads/mês", stars: [1, 2, 3, 4, 5] },
+      { quote: "Saímos das planilhas manuais para relatórios automáticos. Hoje tomo decisão com dado, não com achismo. Mudou o jogo.", name: "Rafael Mendes", role: "Diretor · Loja Prime", initials: "RM", metric: "−68%", metricLabel: "tarefas manuais", stars: [1, 2, 3, 4, 5] },
+      { quote: "A operação roda 24h. Agendamentos, disparos e follow-up acontecem sem ninguém mexer. Parece um time invisível trabalhando.", name: "Juliana Alves", role: "Sócia · Studio Bem", initials: "JA", metric: "24/7", metricLabel: "no automático", stars: [1, 2, 3, 4, 5] },
+    ];
+  }
+
+  optStyle(active) {
+    const base = "width:100%;text-align:left;padding:15px 18px;border-radius:13px;font-size:15.5px;font-weight:500;cursor:pointer;transition:all .2s;";
+    if (active) return base + "border:1px solid #2563EB;background:rgba(37,99,235,.18);color:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.18);";
+    return base + "border:1px solid rgba(120,150,220,.25);background:rgba(10,14,26,.5);color:#cdd6e6;";
+  }
+
+  renderVals() {
+    const d = this.state.data;
+    const step = this.state.step;
+    const ts = this.testimonials();
+    const t = ts[this.state.tIndex % ts.length];
+    const labels = ["Sobre você", "Sua empresa", "Contato", "Segmento", "Objetivo"];
+    return {
+      problems: this.problems(),
+      services: this.services(),
+      steps: this.steps(),
+      diffs: this.diffs(),
+      stats: this.stats(),
+      clients: this.clients(),
+
+      // hero/header
+      menu: this.state.menu,
+      toggleMenu: () => this.setState(st => ({ menu: !st.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+
+      // testimonials
+      testimonial: t,
+      tDots: ts.map((x, i) => ({
+        onClick: () => this.setState({ tIndex: i }),
+        style: "width:" + (i === this.state.tIndex ? "26px" : "9px") + ";height:9px;border-radius:100px;border:none;cursor:pointer;transition:all .3s;background:" + (i === this.state.tIndex ? "#2563EB" : "rgba(120,150,220,.3)") + ";"
+      })),
+
+      // form
+      submitted: this.state.submitted,
+      formActive: !this.state.submitted,
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4,
+      data: d,
+      error: this.state.error,
+      progress: ((step + 1) / 5 * 100) + "%",
+      stepLabel: labels[step],
+      stepCounter: "Passo " + (step + 1) + " de 5",
+      onNome: (e) => this.setData('nome', e.target.value),
+      onEmpresa: (e) => this.setData('empresa', e.target.value),
+      onTel: (e) => this.maskTel(e),
+      next: () => this.next(),
+      back: () => this.back(),
+      submit: () => this.submitForm(),
+      showBack: step > 0,
+      showNext: step <= 2,
+      showSubmit: step === 4,
+      segments: ["Comércio", "Serviços", "Saúde", "Educação", "Outro"].map(l => ({ label: l, onSelect: () => this.selectSeg(l), style: this.optStyle(d.segmento === l) })),
+      objetivos: ["Atendimento", "Vendas / Leads", "Agendamentos", "Relatórios", "Não sei, quero um diagnóstico"].map(l => ({ label: l, onSelect: () => this.selectObj(l), style: this.optStyle(d.objetivo === l) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

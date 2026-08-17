@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel Orbital</title>
+<link rel="stylesheet" href="painel.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true">
+      <ellipse cx="50" cy="50" rx="43" ry="18" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-28 50 50)"/>
+    </svg>
+    <span>ORBITAL</span>
+    <em>painel</em>
+  </div>
+  <nav class="tabs">
+    <button type="button" class="tab is-active" data-view="leads">Leads</button>
+    <button type="button" class="tab" data-view="config">Configuração</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ LEADS ============ -->
+<section data-panel="leads">
+  <div class="cards" data-summary></div>
+
+  <h2>Por campanha <small>últimos <span data-stats-dias>30</span> dias</small></h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Origem</th><th>Campanha</th><th class="n">Leads</th><th class="n">No CAPI</th><th class="n">Erros</th></tr></thead>
+      <tbody data-stats><tr><td colspan="5" class="empty">Carregando…</td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>Leads</h2>
+  <form class="filters" data-filters>
+    <label>Status
+      <select name="status">
+        <option value="">todos</option>
+        <option value="enviado">enviado</option>
+        <option value="erro">erro</option>
+        <option value="pendente">pendente</option>
+      </select>
+    </label>
+    <label>Campanha <input name="campanha" type="text" placeholder="utm_campaign"></label>
+    <label>Desde <input name="desde" type="date"></label>
+    <button type="submit" class="btn">Filtrar</button>
+    <button type="button" class="btn btn--ghost" data-export>Exportar CSV</button>
+  </form>
+
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>Data</th><th>Nome</th><th>Empresa</th><th>WhatsApp</th>
+        <th>Segmento</th><th>Faturamento</th><th>Prioridade</th>
+        <th>Campanha</th><th>CAPI</th><th></th>
+      </tr></thead>
+      <tbody data-leads><tr><td colspan="10" class="empty">Carregando…</td></tr></tbody>
+    </table>
+  </div>
+  <button type="button" class="btn btn--ghost more" data-more hidden>Carregar mais</button>
+</section>
+
+<!-- ============ CONFIGURAÇÃO ============ -->
+<section data-panel="config" hidden>
+  <form class="config" data-config>
+    <h2>Meta</h2>
+    <label>Pixel ID
+      <input name="metaPixelId" type="text" inputmode="numeric" placeholder="1234567890123456">
+      <small>Carrega o Pixel no site e identifica a conta no CAPI.</small>
+    </label>
+    <label>Token da Conversions API
+      <input name="metaCapiToken" type="password" autocomplete="off" placeholder="EAAG…">
+      <small>Events Manager → Configurações → Conversions API → Gerar token. Fica só no servidor, nunca vai para o browser.</small>
+    </label>
+    <label>Test Event Code <span class="opt">opcional</span>
+      <input name="metaTestEventCode" type="text" placeholder="TEST12345">
+      <small>Preenchido, os eventos aparecem em “Eventos de teste” e <strong>não</strong> contam como conversão real. Apague depois de validar.</small>
+    </label>
+
+    <h2>Google</h2>
+    <label>Tag ID
+      <input name="googleTagId" type="text" placeholder="G-XXXXXXXXXX ou AW-123456789">
+      <small>GA4 ou Google Ads. Carrega a tag no site.</small>
+    </label>
+    <label>Rótulo da conversão de lead <span class="opt">opcional</span>
+      <input name="googleLeadLabel" type="text" placeholder="AW-123456789/AbC-D_efGhIj">
+      <small>Google Ads → Conversões → a ação de lead. Só com AW-.</small>
+    </label>
+
+    <h2>Integração</h2>
+    <label>Webhook de encaminhamento <span class="opt">opcional</span>
+      <input name="forwardWebhook" type="url" placeholder="https://n8n.seudominio.com/webhook/orbital">
+      <small>Cada lead gravado é reenviado para esta URL (n8n, CRM, Make). Falha aqui não afeta o CAPI.</small>
+    </label>
+    <label>Janela de atribuição (dias)
+      <input name="attributionDays" type="number" min="1" max="365" placeholder="90">
+      <small>Por quanto tempo o primeiro clique fica guardado no browser do visitante.</small>
+    </label>
+
+    <div class="actions">
+      <button type="submit" class="btn">Salvar</button>
+      <span data-config-msg class="msg"></span>
+    </div>
+  </form>
+</section>
+
+</main>
+
+<script src="painel.js"></script>
+</body>
+</html>

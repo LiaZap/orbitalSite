@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbital — Time de Performance | Tráfego, Criativo e Automação com IA</title>
+<meta name="description" content="Tráfego, criativo, social e automação com inteligência artificial trabalhando juntos para a sua empresa crescer no automático. Diagnóstico gratuito.">
+<script>document.documentElement.className += ' js'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+
+<div class="cursor" data-cursor aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="header" data-header>
+  <div class="header__progress" data-progress></div>
+  <a class="logo" href="#inicio">
+    <svg class="logo__mark" viewBox="0 0 100 100" width="36" height="36" aria-hidden="true">
+      <g class="spin">
+        <ellipse cx="50" cy="50" rx="43" ry="18" fill="none" stroke="#fff" stroke-width="3" transform="rotate(-28 50 50)"/>
+        <g transform="rotate(-28 50 50)"><polygon points="92,43.5 93.6,47.4 98,47.7 94.6,50.6 95.8,55 92,52.6 88.2,55 89.4,50.6 86,47.7 90.4,47.4" fill="#fff"/></g>
+      </g>
+    </svg>
+    <span class="logo__text">ORBITAL</span>
+  </a>
+  <nav class="nav" data-nav-desktop aria-label="Principal">
+    <a class="nav__link" data-navlink="servicos" href="#servicos">Serviços</a>
+    <a class="nav__link" data-navlink="como-funciona" href="#como-funciona">Como Funciona</a>
+    <a class="nav__link" data-navlink="resultados" href="#resultados">Resultados</a>
+    <a class="nav__link" data-navlink="contato" href="#contato">Contato</a>
+  </nav>
+  <a class="btn btn--light" data-wa href="#contato">Agendar Diagnóstico</a>
+  <button class="burger" data-nav-open type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- ============ MENU MOBILE ============ -->
+<div class="menu" id="menu-mobile" data-menu hidden>
+  <div class="menu__top">
+    <span class="logo__text">ORBITAL</span>
+    <button class="menu__close" data-nav-close type="button" aria-label="Fechar menu">&times;</button>
+  </div>
+  <nav class="menu__nav" aria-label="Menu mobile">
+    <a href="#inicio">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a class="menu__cta" data-wa href="#contato">Agendar Diagnóstico</a>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="hero__ring" data-hero-ring aria-hidden="true">
+    <svg viewBox="0 0 100 100" width="100%">
+      <g class="spin spin--60">
+        <ellipse cx="50" cy="50" rx="47" ry="20" fill="none" stroke="rgba(164,175,194,.35)" stroke-width="0.4" transform="rotate(-26 50 50)"/>
+        <ellipse cx="50" cy="50" rx="36" ry="15" fill="none" stroke="rgba(37,99,235,.7)" stroke-width="0.55" transform="rotate(-26 50 50)"/>
+        <ellipse cx="50" cy="50" rx="24" ry="10" fill="none" stroke="rgba(164,175,194,.25)" stroke-width="0.4" transform="rotate(-26 50 50)"/>
+        <g transform="rotate(-26 50 50)"><polygon points="97,50 98.2,53 101,53.2 98.7,55.4 99.4,58.5 97,56.8 94.6,58.5 95.3,55.4 93,53.2 95.8,53" fill="#6ea0ff"/></g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero__grid" data-hero-grid>
+    <p class="eyebrow" data-anim="up"><span class="eyebrow__dot"></span>Tráfego · Social · Criativo · Automação · IA</p>
+    <h1 class="hero__title">
+      <span class="line" data-anim="line" data-delay="60ms"><span>Sua empresa no</span></span>
+      <span class="line" data-anim="line" data-delay="150ms"><span class="dim">piloto automático</span></span>
+      <span class="line" data-anim="line" data-delay="240ms"><span>com <span class="grad">IA.</span></span></span>
+    </h1>
+    <div class="hero__foot">
+      <div data-anim="up" data-delay="340ms" class="hero__pitch">
+        <p>Tráfego, criativo, social e automação com inteligência artificial trabalhando juntos para a sua empresa <strong>crescer no automático</strong>.</p>
+        <div class="hero__actions">
+          <a class="btn btn--blue" data-wa data-cursor-grow href="#contato">Agendar Diagnóstico</a>
+          <a class="btn btn--underline" href="#servicos" data-cursor-grow>Ver o que fazemos →</a>
+        </div>
+      </div>
+      <p class="hero__cycle" data-anim="up" data-delay="420ms">
+        <span class="hero__cycle-label">Escalamos sua</span>
+        <span class="cycle">
+          <span class="cycle__word">Operação</span>
+          <span class="cycle__word">Vendas</span>
+          <span class="cycle__word">Receita</span>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true"><span>Role</span><span class="hero__scroll-line"></span></div>
+</section>
+
+<!-- ============ STATS + CLIENTES ============ -->
+<section class="stats-band">
+  <div class="stats">
+    <div class="stat" data-anim="up">
+      <div class="stat__value">+<span data-countup="340">0</span>%</div>
+      <div class="stat__label">ROAS médio dos clientes</div>
+    </div>
+    <div class="stat" data-anim="up" data-delay="80ms">
+      <div class="stat__value">x<span data-countup="5">0</span></div>
+      <div class="stat__label">Mais produtividade no time</div>
+    </div>
+    <div class="stat" data-anim="up" data-delay="160ms">
+      <div class="stat__value"><span data-countup="24">0</span>h</div>
+      <div class="stat__label">Operação que nunca para</div>
+    </div>
+    <div class="stat" data-anim="up" data-delay="240ms">
+      <div class="stat__value">+<span data-countup="1000" data-sep>0</span></div>
+      <div class="stat__label">Leads gerados por mês</div>
+    </div>
+  </div>
+
+  <div class="marquee marquee--clients">
+    <div class="marquee__track marquee__track--clients">
+      <span class="client">NOVA</span><span class="client__dot"></span>
+      <span class="client">VERTEX</span><span class="client__dot"></span>
+      <span class="client">LUMEN</span><span class="client__dot"></span>
+      <span class="client">AXIS</span><span class="client__dot"></span>
+      <span class="client">PRISMA</span><span class="client__dot"></span>
+      <span class="client">FORGE</span><span class="client__dot"></span>
+      <span class="client">NIMBUS</span><span class="client__dot"></span>
+      <span class="client">QUANTA</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">NOVA</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">VERTEX</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">LUMEN</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">AXIS</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">PRISMA</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">FORGE</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">NIMBUS</span><span class="client__dot"></span>
+      <span class="client" aria-hidden="true">QUANTA</span><span class="client__dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEMA ============ -->
+<section class="section">
+  <div class="section__head">
+    <p class="kicker" data-anim="up"><span class="kicker__num">(01)</span><span class="kicker__label">O Problema</span><span class="kicker__rule"></span></p>
+    <h2 class="h2">
+      <span class="line" data-anim="line"><span>Onde a sua empresa está</span></span>
+      <span class="line" data-anim="line" data-delay="90ms"><span>deixando <span class="dim">dinheiro na mesa?</span></span></span>
+    </h2>
+  </div>
+  <div class="problems">
+    <article class="problem" data-anim="up">
+      <span class="problem__num">01</span>
+      <h3>Verba de anúncio desperdiçada</h3>
+      <p>Anúncio sem estratégia queima orçamento e atrai o público errado.</p>
+    </article>
+    <article class="problem" data-anim="up" data-delay="80ms">
+      <span class="problem__num">02</span>
+      <h3>Leads que chegam e esfriam</h3>
+      <p>Quando a resposta demora, a oportunidade vai direto para o concorrente.</p>
+    </article>
+    <article class="problem" data-anim="up" data-delay="160ms">
+      <span class="problem__num">03</span>
+      <h3>Equipe sobrecarregada não escala</h3>
+      <p>Para crescer você contrata mais gente ou automatiza o que trava o time.</p>
+    </article>
+    <article class="problem" data-anim="up" data-delay="240ms">
+      <span class="problem__num">04</span>
+      <h3>Decisão tomada no escuro</h3>
+      <p>Sem um relatório claro, ninguém sabe ao certo o que está dando resultado.</p>
+    </article>
+  </div>
+  <p class="statement" data-anim="up">Automatizar não é mais uma opção. <strong>É uma questão de sobrevivência.</strong></p>
+</section>
+
+<!-- ============ SERVIÇOS (SCROLL HORIZONTAL FIXADO) ============ -->
+<section class="hpin" id="servicos" data-hpin>
+  <div class="hsticky" data-hsticky>
+    <div class="htrack" data-htrack>
+      <div class="hintro" data-hintro>
+        <p class="kicker"><span class="kicker__num">(02)</span><span class="kicker__label">Serviços</span></p>
+        <h2 class="h2 h2--tight">Tudo que a sua empresa precisa para crescer</h2>
+        <p class="hintro__lead">Seis frentes de performance, do tráfego ao dado, trabalhando juntas para escalar o seu negócio.</p>
+        <p class="hintro__hint"><span>ARRASTE / ROLE</span><span class="hintro__arrow"></span></p>
+      </div>
+
+      <article class="scard" data-hcard data-cursor-grow>
+        <div class="scard__top">
+          <span class="scard__num">01</span>
+          <span class="scard__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3zM11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+        </div>
+        <div>
+          <h3>Tráfego Pago</h3>
+          <p>Campanhas no Google e no Meta que colocam o seu anúncio na frente de quem já está pronto para comprar.</p>
+        </div>
+      </article>
+      <article class="scard" data-hcard data-cursor-grow>
+        <div class="scard__top">
+          <span class="scard__num">02</span>
+          <span class="scard__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        </div>
+        <div>
+          <h3>Social Media e Conteúdo</h3>
+          <p>Presença constante que constrói autoridade e mantém a sua marca na lembrança do cliente.</p>
+        </div>
+      </article>
+      <article class="scard" data-hcard data-cursor-grow>
+        <div class="scard__top">
+          <span class="scard__num">03</span>
+          <span class="scard__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8zM2 6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg></span>
+        </div>
+        <div>
+          <h3>Criativos que Convertem</h3>
+          <p>Vídeos e peças pensados para prender a atenção e transformar o clique em venda.</p>
+        </div>
+      </article>
+      <article class="scard" data-hcard data-cursor-grow>
+        <div class="scard__top">
+          <span class="scard__num">04</span>
+          <span class="scard__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span>
+        </div>
+        <div>
+          <h3>Automação e IA</h3>
+          <p>Atendimento, follow-up e rotina operando sozinhos, todos os dias, sem ninguém precisar lembrar.</p>
+        </div>
+      </article>
+      <article class="scard" data-hcard data-cursor-grow>
+        <div class="scard__top">
+          <span class="scard__num">05</span>
+          <span class="scard__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></span>
+        </div>
+        <div>
+          <h3>Qualificação de Leads</h3>
+          <p>A inteligência artificial separa quem tem real intenção de compra e entrega o lead pronto para o seu time.</p>
+        </div>
+      </article>
+      <article class="scard" data-hcard data-cursor-grow>
+        <div class="scard__top">
+          <span class="scard__num">06</span>
+          <span class="scard__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 16v-5M12 16V8M17 16v-9"/></svg></span>
+        </div>
+        <div>
+          <h3>Dados e Relatórios</h3>
+          <p>Relatórios claros, focados em retorno, para você decidir com base em número e não em achismo.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="hprogress" data-hprogress aria-hidden="true">
+      <span class="hprogress__count" data-hcount>01</span>
+      <span class="hprogress__rail"><span class="hprogress__bar" data-hbar></span></span>
+      <span class="hprogress__total">06</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section section--steps" id="como-funciona">
+  <div class="section__head">
+    <p class="kicker" data-anim="up"><span class="kicker__num">(03)</span><span class="kicker__label">O Processo</span><span class="kicker__rule"></span></p>
+    <h2 class="h2">
+      <span class="line" data-anim="line"><span>Como colocamos sua</span></span>
+      <span class="line" data-anim="line" data-delay="90ms"><span>empresa <span class="dim">em órbita</span></span></span>
+    </h2>
+  </div>
+  <div class="steps">
+    <article class="step" data-stack>
+      <span class="step__num">01</span>
+      <div><h3>Diagnóstico estratégico</h3><p>Entendemos a fundo o seu processo e onde está travando.</p></div>
+    </article>
+    <article class="step" data-stack>
+      <span class="step__num">02</span>
+      <div><h3>Desenho da automação</h3><p>Mapeamos exatamente o que dá para automatizar com IA.</p></div>
+    </article>
+    <article class="step" data-stack>
+      <span class="step__num">03</span>
+      <div><h3>Implementação com IA</h3><p>Construímos, integramos e colocamos tudo para funcionar.</p></div>
+    </article>
+    <article class="step" data-stack>
+      <span class="step__num">04</span>
+      <div><h3>Operação e otimização</h3><p>Acompanhamos os resultados e melhoramos continuamente.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" data-manifesto>
+  <div class="manifesto__sticky">
+    <div class="manifesto__inner">
+      <p class="kicker"><span class="kicker__num">(✦)</span><span class="kicker__label">O que move a Orbital</span></p>
+      <p class="manifesto__text" data-manifesto-text>Tráfego que traz o cliente certo. Criativo que faz parar o dedo na tela. Automação que trabalha enquanto você dorme. Dados que mostram a verdade. Isso é o que chamamos de performance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POSICIONAMENTO ============ -->
+<section class="marquee marquee--pos" aria-label="Não somos uma agência, somos um time de performance">
+  <div class="marquee__track marquee__track--pos">
+    <span class="pos pos--outline">NÃO SOMOS UMA AGÊNCIA</span><span class="pos__star">✦</span>
+    <span class="pos">SOMOS UM TIME DE PERFORMANCE</span><span class="pos__star">✦</span>
+    <span class="pos pos--outline" aria-hidden="true">NÃO SOMOS UMA AGÊNCIA</span><span class="pos__star">✦</span>
+    <span class="pos" aria-hidden="true">SOMOS UM TIME DE PERFORMANCE</span><span class="pos__star">✦</span>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="section">
+  <div class="section__head" data-anim="up">
+    <p class="kicker"><span class="kicker__num">(04)</span><span class="kicker__label">Diferenciais</span><span class="kicker__rule"></span></p>
+    <h2 class="h2">Por que contratar a Orbital?</h2>
+  </div>
+  <div class="diffs">
+    <div class="diff" data-anim="up">
+      <span class="diff__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 16v-5M12 16V8M17 16v-9"/></svg></span>
+      <h3>Estratégia validada por dados</h3>
+    </div>
+    <div class="diff" data-anim="up" data-delay="80ms">
+      <span class="diff__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.5z"/></svg></span>
+      <h3>Criativos que param o scroll</h3>
+    </div>
+    <div class="diff" data-anim="up" data-delay="160ms">
+      <span class="diff__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></span>
+      <h3>Foco em ROAS, não em curtidas</h3>
+    </div>
+    <div class="diff" data-anim="up" data-delay="240ms">
+      <span class="diff__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></span>
+      <h3>Relatórios transparentes toda semana</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTADOS ============ -->
+<section class="results" id="resultados">
+  <div class="results__inner">
+    <p class="kicker" data-anim="up"><span class="kicker__num">(05)</span><span class="kicker__label">Resultados</span><span class="kicker__rule"></span></p>
+    <div class="testimonial" data-anim="up">
+      <div>
+        <div class="testimonial__stars" aria-label="5 de 5 estrelas">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#2563EB" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.42 1.18 6.41L12 17.27 6.07 20.1l1.18-6.41L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#2563EB" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.42 1.18 6.41L12 17.27 6.07 20.1l1.18-6.41L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#2563EB" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.42 1.18 6.41L12 17.27 6.07 20.1l1.18-6.41L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#2563EB" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.42 1.18 6.41L12 17.27 6.07 20.1l1.18-6.41L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#2563EB" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.42 1.18 6.41L12 17.27 6.07 20.1l1.18-6.41L2.5 9.27l6.6-1.01z"/></svg>
+        </div>
+        <blockquote class="testimonial__quote" data-t-quote>Em 60 dias automatizaram nosso atendimento e o time parou de perder lead à noite. O WhatsApp responde e qualifica sozinho.</blockquote>
+        <div class="testimonial__who">
+          <div class="testimonial__avatar" data-t-initials>MC</div>
+          <div>
+            <div class="testimonial__name" data-t-name>Mariana Costa</div>
+            <div class="testimonial__role" data-t-role>CEO · Clínica Viver</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial__metric">
+        <div class="testimonial__metric-value" data-t-metric>+3x</div>
+        <div class="testimonial__metric-label" data-t-metric-label>leads qualificados por mês</div>
+      </div>
+    </div>
+    <div class="dots" data-t-dots role="tablist" aria-label="Depoimentos">
+      <button type="button" class="dot is-active" data-cursor-grow role="tab" aria-selected="true" aria-label="Depoimento 1"></button>
+      <button type="button" class="dot" data-cursor-grow role="tab" aria-selected="false" aria-label="Depoimento 2"></button>
+      <button type="button" class="dot" data-cursor-grow role="tab" aria-selected="false" aria-label="Depoimento 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPTAÇÃO / FORM ============ -->
+<section class="contact" id="contato">
+  <div class="contact__inner">
+    <div data-anim="up">
+      <p class="kicker"><span class="kicker__num">(06)</span><span class="kicker__label">Diagnóstico gratuito</span></p>
+      <h2 class="h2 h2--sm">Vamos colocar sua empresa em órbita?</h2>
+      <p class="contact__lead">Preencha em 30 segundos. Respondemos pelo WhatsApp em até 24h.</p>
+      <ul class="contact__perks">
+        <li>Resposta em até 24h</li>
+        <li>Diagnóstico 100% gratuito</li>
+        <li>Sem compromisso</li>
+      </ul>
+    </div>
+
+    <div class="formcard" data-anim="up" data-delay="120ms">
+      <div class="success" data-success hidden>
+        <div class="success__icon"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#0A0E1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Recebemos suas informações</h3>
+        <p>Abrimos o WhatsApp com a sua mensagem pronta. Se a janela não abriu, toque no botão abaixo para continuar a conversa.</p>
+        <a class="btn btn--wa" data-wa-final href="#contato">Abrir WhatsApp</a>
+      </div>
+
+      <form data-form novalidate>
+        <div class="formcard__meta">
+          <span class="formcard__step-label" data-step-label>Sobre você</span>
+          <span class="formcard__step-count" data-step-count>Passo 1 de 6</span>
+        </div>
+        <div class="formcard__rail"><div class="formcard__bar" data-progress-bar></div></div>
+
+        <div class="fstep" data-step="0">
+          <label for="f-nome">Qual é o seu nome?</label>
+          <input id="f-nome" name="nome" data-field="nome" type="text" autocomplete="name" placeholder="Nome completo">
+        </div>
+        <div class="fstep" data-step="1" hidden>
+          <label for="f-empresa">Nome da sua empresa?</label>
+          <input id="f-empresa" name="empresa" data-field="empresa" type="text" autocomplete="organization" placeholder="Nome do negócio">
+        </div>
+        <div class="fstep" data-step="2" hidden>
+          <label for="f-tel">Seu WhatsApp?</label>
+          <input id="f-tel" name="telefone" data-field="telefone" data-mask-tel type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-9999">
+          <p class="fstep__note">É por ele que enviamos o diagnóstico. Não fazemos disparos sem autorização.</p>
+        </div>
+        <div class="fstep" data-step="3" hidden>
+          <span class="fstep__legend">Qual o segmento?</span>
+          <div class="opts" data-opts="segmento">
+            <button type="button" class="opt" data-cursor-grow>Comércio e varejo</button>
+            <button type="button" class="opt" data-cursor-grow>Serviços</button>
+            <button type="button" class="opt" data-cursor-grow>Saúde</button>
+            <button type="button" class="opt" data-cursor-grow>Educação</button>
+            <button type="button" class="opt" data-cursor-grow>Outro</button>
+          </div>
+        </div>
+        <div class="fstep" data-step="4" hidden>
+          <span class="fstep__legend">Qual o faturamento mensal?</span>
+          <p class="fstep__note fstep__note--top">Usamos essa faixa apenas para preparar um diagnóstico adequado ao seu momento.</p>
+          <div class="opts" data-opts="faturamento">
+            <button type="button" class="opt" data-cursor-grow>Até R$ 30 mil</button>
+            <button type="button" class="opt" data-cursor-grow>R$ 30 mil a R$ 100 mil</button>
+            <button type="button" class="opt" data-cursor-grow>R$ 100 mil a R$ 500 mil</button>
+            <button type="button" class="opt" data-cursor-grow>Acima de R$ 500 mil</button>
+            <button type="button" class="opt" data-cursor-grow>Prefiro falar no WhatsApp</button>
+          </div>
+        </div>
+        <div class="fstep" data-step="5" hidden>
+          <span class="fstep__legend">Qual é a prioridade agora?</span>
+          <div class="opts" data-opts="objetivo">
+            <button type="button" class="opt" data-cursor-grow>Gerar mais leads e vendas</button>
+            <button type="button" class="opt" data-cursor-grow>Melhorar o atendimento</button>
+            <button type="button" class="opt" data-cursor-grow>Automatizar a operação</button>
+            <button type="button" class="opt" data-cursor-grow>Estruturar tráfego e criativos</button>
+            <button type="button" class="opt" data-cursor-grow>Quero um diagnóstico completo</button>
+          </div>
+        </div>
+
+        <p class="fstep__error" data-error role="alert" hidden></p>
+
+        <div class="formcard__actions">
+          <button type="button" class="btn btn--ghost" data-back data-cursor-grow hidden>Voltar</button>
+          <button type="submit" class="btn btn--blue btn--grow" data-next data-cursor-grow>Próximo →</button>
+          <button type="submit" class="btn btn--wa btn--grow" data-submit data-cursor-grow hidden>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg>
+            Falar com a Orbital
+          </button>
+        </div>
+        <p class="formcard__privacy">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Usamos seus dados para o diagnóstico e para medir nossas campanhas.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-wrap">
+  <div class="cta" data-anim="up">
+    <svg class="cta__ring" viewBox="0 0 100 100" width="440" height="440" aria-hidden="true">
+      <g class="spin spin--50">
+        <ellipse cx="50" cy="50" rx="46" ry="20" fill="none" stroke="#fff" stroke-width="0.8" transform="rotate(-26 50 50)"/>
+        <ellipse cx="50" cy="50" rx="34" ry="14" fill="none" stroke="#fff" stroke-width="0.8" transform="rotate(-26 50 50)"/>
+      </g>
+    </svg>
+    <div class="cta__body">
+      <h2 class="cta__title">Pronto para colocar sua empresa em órbita?</h2>
+      <p class="cta__lead">Agende um diagnóstico gratuito e veja na prática o que dá para melhorar no seu marketing já a partir de hoje.</p>
+      <div class="cta__actions">
+        <a class="btn btn--white" data-wa data-cursor-grow href="#contato">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg>
+          Falar no WhatsApp agora
+        </a>
+        <a class="btn btn--outline" href="#contato" data-cursor-grow>Preencher diagnóstico</a>
+      </div>
+      <p class="cta__note">Resposta em até 24h. Sem compromisso.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="logo">
+        <svg class="logo__mark" viewBox="0 0 100 100" width="36" height="36" aria-hidden="true">
+          <g class="spin">
+            <ellipse cx="50" cy="50" rx="43" ry="18" fill="none" stroke="#fff" stroke-width="3" transform="rotate(-28 50 50)"/>
+            <g transform="rotate(-28 50 50)"><polygon points="92,43.5 93.6,47.4 98,47.7 94.6,50.6 95.8,55 92,52.6 88.2,55 89.4,50.6 86,47.7 90.4,47.4" fill="#fff"/></g>
+          </g>
+        </svg>
+        <span class="logo__text">ORBITAL</span>
+      </div>
+      <p>Estratégias que faturam. Um time de performance para automatizar e escalar seu negócio com IA.</p>
+      <div class="footer__social">
+        <a class="social social--wa" data-wa href="#contato" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg>
+        </a>
+        <a class="social social--ig" href="https://instagram.com/orbital.ag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h4>Navegação</h4>
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#resultados">Resultados</a>
+    </div>
+    <div class="footer__col">
+      <h4>Serviços</h4>
+      <span>Tráfego Pago</span>
+      <span>Social Media e Conteúdo</span>
+      <span>Criativos que Convertem</span>
+      <span>Automação e IA</span>
+    </div>
+    <div class="footer__col">
+      <h4>Contato</h4>
+      <a data-wa href="#contato">Fale conosco</a>
+      <a href="https://instagram.com/orbital.ag" target="_blank" rel="noopener">@orbital.ag</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>&copy; 2026 Orbital. Time de Performance.</span>
+    <span>Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa href="#contato" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" width="29" height="29" fill="#fff" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607z"/></svg>
+</a>
+
+<script src="src/tracking-config.js"></script>
+<script src="src/tracking.js"></script>
+<script src="src/form-logic.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
