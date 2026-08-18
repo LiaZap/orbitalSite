@@ -1,0 +1,13 @@
+# Orbital — orbitalagencia.site
+
+# Buscadores e crawlers de IA (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot,
+# PerplexityBot, Google-Extended, Applebot-Extended, CCBot) são liberados por
+# este bloco. Para bloquear um deles, some um bloco próprio, por exemplo:
+#   User-agent: CCBot
+#   Disallow: /
+User-agent: *
+Allow: /
+Disallow: /painel
+Disallow: /api
+
+Sitemap: https://orbitalagencia.site/sitemap.xml

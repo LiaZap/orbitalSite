@@ -77,6 +77,12 @@ app.get('/src/tracking-config.js', async (req, res) => {
 app.get('/', (req, res) => res.sendFile(path.join(ROOT, 'index.html')));
 app.use('/src', express.static(path.join(ROOT, 'src')));
 app.use('/assets', express.static(path.join(ROOT, 'assets')));
+
+/* Arquivos de raiz para buscadores e crawlers de IA. Lista explícita porque um
+   express.static(ROOT) entregaria também server/, package.json e .env. */
+['robots.txt', 'sitemap.xml', 'llms.txt'].forEach((file) => {
+  app.get('/' + file, (req, res) => res.sendFile(path.join(ROOT, file)));
+});
 app.get('/healthz', (req, res) => res.json({ ok: true }));
 
 /* ============ captação do lead ============ */
